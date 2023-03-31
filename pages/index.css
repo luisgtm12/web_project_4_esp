@@ -17,3 +17,11 @@
 @import url('../blocks/places/places-card/__contain/_like/places-card__contain_like.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
+@import url('../blocks/modal/modal.css');
+@import url('../blocks/modal/__opened/modal__opened.css');
+@import url('../blocks/modal/__contain/modal__contain.css');
+@import url('../blocks/modal/__close-icon/modal__close-icon.css');
+@import url('../blocks/modal/__contain/_title/modal__contain_title.css');
+@import url('../blocks/modal/__contain/form/form.css');
+@import url('../blocks/modal/__contain/form/__user-box/form__user-box.css');
+@import url('../blocks/modal/__contain/form/__button-submit/form__button-submit.css');
