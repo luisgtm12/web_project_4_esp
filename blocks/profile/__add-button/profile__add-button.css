@@ -7,3 +7,8 @@
   margin-left: 165px;
   margin-top: 39px;
 }
+
+.profile__add-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
