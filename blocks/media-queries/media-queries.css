@@ -1,0 +1,51 @@
+@media screen and (max-width: 320px) {
+  .page {
+    width: 282px;
+    margin-top: 28px;
+  }
+
+  
+
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__content_name {
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .profile__content_workstation {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+  .profile__add-button {
+    width: 282px;
+    height: 50px;
+    margin-left: 0;
+}
+
+  .places {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .footer {
+    margin: 50px 0 36px;
+  }
+
+  .modal__contain {
+    width: 282px;
+    height: 322px;
+  }
+  
+  .form__user-box {
+    width: 238px;
+  }
+
+  .form__button-submit {
+    width: 238px;
+  }
+}
