@@ -48,4 +48,9 @@
   .form__button-submit {
     width: 238px;
   }
+
+  .modal__img{
+    width: 240px;
+    height: 299px;
+  }
 }

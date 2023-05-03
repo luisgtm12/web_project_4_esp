@@ -2,3 +2,11 @@
   background: #FFFFFF;
   border: none;
 }
+
+.places-card__contain_like:hover {
+  opacity: 0.4;
+}
+
+.black-heart {
+  background-image: url(/images/corazon-negro.png);
+}

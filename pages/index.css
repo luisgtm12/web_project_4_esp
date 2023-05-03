@@ -11,6 +11,7 @@
 @import url('../blocks/profile/__add-button/profile__add-button.css');
 @import url('../blocks/places/places.css');
 @import url('../blocks/places/places-card/places-card.css');
+@import url('../blocks/places/places-card/__trash/places-card__trash.css');
 @import url('../blocks/places/places-card/__image/places-card__image.css');
 @import url('../blocks/places/places-card/__contain/places-card__contain.css');
 @import url('../blocks/places/places-card/__contain/_title/places-card__contain_title.css');
@@ -26,3 +27,5 @@
 @import url('../blocks/modal/__contain/form/__user-box/form__user-box.css');
 @import url('../blocks/modal/__contain/form/__button-submit/form__button-submit.css');
 @import url('../blocks/media-queries/media-queries.css');
+@import url('../blocks/modal/__contain/-img/modal__contain-img.css');
+@import url('../blocks/modal/__img/modal__img.css');
