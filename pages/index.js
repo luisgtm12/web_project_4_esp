@@ -1,26 +1,26 @@
 const editButton = document.querySelector('.profile__edit-button');
-const modal = document.querySelector('#modal1');
+const modalProfile = document.querySelector('#modal1');
 const closeIcon = document.querySelector('#close-icon1');
 const modalForm = document.querySelector('#submit-button1');
 
 function handleDisplayModal () {
-  modal.classList.toggle("modal__opened");
-}
+  modalProfile.classList.toggle("modal__opened");
+};
 
 function handleProfileForm (event) {
   event.preventDefault();
 
-  const name = document.querySelector('#user-name').value;
-  const about = document.querySelector('#user-about').value;
+  const userName = document.querySelector('#user-name').value;
+  const userAbout = document.querySelector('#user-about').value;
 
   const profileName = document.querySelector('.profile__content_name');
   const profileWorkstation = document.querySelector('.profile__content_workstation');
 
-  profileName.innerHTML = name;
-  profileWorkstation.innerHTML = about;
+  profileName.textContent = userName;
+  profileWorkstation.textContent = userAbout;
 
   handleDisplayModal();
-}
+};
 
 editButton.addEventListener('click', handleDisplayModal);
 closeIcon.addEventListener('click', handleDisplayModal);
@@ -55,7 +55,6 @@ const initialCards = [
   }
 ];
 
-
 const modalPlace = document.querySelector('#modal2');
 const closePlace = document.querySelector('#close-icon2');
 const formPlace = document.querySelector('#submit-button2');
@@ -63,10 +62,6 @@ const places = document.getElementById('places');
 const modalImg = document.querySelector('#modal-img');
 const modalImgSrc = document.querySelector('#modal-img-src');
 const modalImgTitle = document.querySelector('#modal-img-tittle')
-
-
-const placesId = "card-" + places.children.length.toString();
-const likeId = "like-" + places.children.length.toString();
 
 console.log(places);
 
@@ -90,34 +85,59 @@ function handleModalImg ( imgSrc, title) {
   modalImgTitle.innerHTML = title;
 
   handleDisplayModalImg ();
-}
+};
 
 /* iteracion de tarjetas iniciales */
-for (let i= 0; i < initialCards.length; i++){
-  const cardName = initialCards[i].name;
-  const cardLink = initialCards[i].link;
-    
-  const placesHTML =`<div class="places-card" id="${placesId}">
-  <img src="./images/trash-icon.png"
-    class="places-card__trash" 
-    alt="Bote de basura" 
-    onclick="deletedPlaces('${placesId}')">
 
-  <img src="${cardLink}" alt="${cardName}" class="places-card__image"
-  onclick="handleModalImg('${cardLink}','${cardName}')">
-  <div class="places-card__contain">
-    <h4 class="places-card__contain_title">${cardName}</h4>
+function createCardElements (cardId, cardLink, cardName, likeId){
+  const divPlaces = document.createElement("div");
+  divPlaces.classList.add("places-card");
+  divPlaces.id = cardId;
 
-    <img id="${likeId}"
-    src="./images/corazon.png"
-    alt="icono de corazon"
-    class="places-card__contain_like"
-    onclick="handleLike('${likeId}')">
+  const deletedButton = document.createElement("img");
+  deletedButton.src = "./images/trash-icon.png";
+  deletedButton.classList.add("places-card__trash");
+  deletedButton.addEventListener("click", () =>deletedPlace(cardId));
+  divPlaces.appendChild(deletedButton);
 
-  </div>
-</div>`;
-  places.innerHTML+=placesHTML
+  const cardImg = document.createElement("img");
+  cardImg.src = cardLink;
+  cardImg.alt = `Photo ${cardName}`;
+  cardImg.classList.add("places-card__image");
+  cardImg.addEventListener("click", () => handleModalImg(cardLink, cardName));
+  divPlaces.append(cardImg);
+
+  const divCardContain = document.createElement("div");
+  divCardContain.classList.add("places-card__contain");
+
+  const cardParagraph = document.createElement("p");
+  cardParagraph.classList.add("places-card__contain_title");
+  cardParagraph.textContent = cardName;
+  
+  const imgLike = document.createElement("img");
+  imgLike.id = likeId;
+  imgLike.src = "./images/corazon.png";
+  imgLike.alt = "icono de corazon";
+  imgLike.classList.add("places-card__contain_like");
+  imgLike.addEventListener("click", () => handleLike(likeId));
+
+  divCardContain.appendChild(cardParagraph);
+  divCardContain.appendChild(imgLike);
+
+  divPlaces.appendChild(divCardContain);
+
+  return divPlaces;
 };
+initialCards.forEach((card,index)=>{
+  const cardName = card.name;
+  const cardLink = card.link;
+  const cardId = "card-" + index;
+  const likeId = "like-" + index;
+
+  const divPlaces = createCardElements(cardId, cardLink, cardName, likeId);
+
+  places.appendChild(divPlaces);
+});
 
 
 /* funcion de modal 2 */
@@ -130,30 +150,12 @@ const addButton = document.querySelector('.profile__add-button');
 /* controlador de modal places */
 function handleAddPlace (event) {
   event.preventDefault();
-
-  const cardTitle = document.querySelector('#place-title').value;
+  const cardId = "card-" + places.children.length;
+  const likeId = "like-" + places.children.length;
+  const cardName = document.querySelector('#place-title').value;
   const cardLink = document.querySelector('#place-link').value;
-    
-  const placesHTML=`<div class="places-card" id="${placesId}">
-  <img src="./images/trash-icon.png"
-  class="places-card__trash"
-  alt="Bote de basura"
-  onclick="deletedPlaces('${placesId}')">
-  <img src="${cardLink}" alt="${cardTitle}" class="places-card__image"
-  onclick="handleModalImg('${cardLink}','${cardName}')">
-  <div class="places-card__contain">
-    <h4 class="places-card__contain_title">${cardTitle}</h4>
-
-    <img id="${likeId}"
-    src="./images/corazon.png"
-    alt="icono de corazon"
-    class="places-card__contain_like"
-    onclick="handleLike('${likeId}')">
-
-  </div>
-  </div>`;
-  
-  places.innerHTML+= placesHTML;
+  const divPlaces = createCardElements(cardId, cardLink, cardName, likeId);
+  places.appendChild(divPlaces);
   handleDisplayModalPlace ();
 };
 
