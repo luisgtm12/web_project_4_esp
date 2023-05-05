@@ -50,7 +50,14 @@
   }
 
   .modal__img{
-    width: 240px;
+    width: 238px;
     height: 299px;
+  }
+
+  .modal__close-icon{
+    top: -35px;
+    right: -2px;
+    width: 26px;
+    height: 26px;
   }
 }
