@@ -61,7 +61,7 @@ const formPlace = document.querySelector('#submit-button2');
 const places = document.getElementById('places');
 const modalImg = document.querySelector('#modal-img');
 const modalImgSrc = document.querySelector('#modal-img-src');
-const modalImgTitle = document.querySelector('#modal-img-tittle')
+const modalImgTitle = document.querySelector('#modal-img-title');
 
 console.log(places);
 
@@ -80,9 +80,9 @@ function handleDisplayModalImg (){
   modalImg.classList.toggle("modal__opened")
 };
 function handleModalImg ( imgSrc, title) {
-  handleDisplayModalImg();
+  
   modalImgSrc.src = imgSrc;
-  modalImgTitle.innerHTML = title;
+  modalImgTitle.textContent = title;
 
   handleDisplayModalImg ();
 };
