@@ -1,7 +1,8 @@
 const editButton = document.querySelector('.profile__edit-button');
 const modalProfile = document.querySelector('#modal1');
 const closeIcon = document.querySelector('#close-icon1');
-const modalForm = document.querySelector('#submit-button1');
+const modalForm = document.querySelector('#form-1');
+
 
 function handleDisplayModal () {
   modalProfile.classList.toggle("modal__opened");
@@ -13,8 +14,8 @@ function handleProfileForm (event) {
   const userName = document.querySelector('#user-name').value;
   const userAbout = document.querySelector('#user-about').value;
 
-  const profileName = document.querySelector('.profile__content_name');
-  const profileWorkstation = document.querySelector('.profile__content_workstation');
+  const profileName = document.querySelector('.profile__content-name');
+  const profileWorkstation = document.querySelector('.profile__content-workstation');
 
   profileName.textContent = userName;
   profileWorkstation.textContent = userAbout;
@@ -57,7 +58,7 @@ const initialCards = [
 
 const modalPlace = document.querySelector('#modal2');
 const closePlace = document.querySelector('#close-icon2');
-const formPlace = document.querySelector('#submit-button2');
+const formPlace = document.querySelector('#form-2');
 const places = document.getElementById('places');
 const modalImg = document.querySelector('#modal-img');
 const modalImgSrc = document.querySelector('#modal-img-src');
@@ -159,6 +160,50 @@ function handleAddPlace (event) {
   handleDisplayModalPlace ();
 };
 
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add("form__input-error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove("form__input-error");
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
+};
+
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__user-box"));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      checkInputValidity(formElement, inputElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
 
 console.log(handleAddPlace);
 formPlace.addEventListener('submit', handleAddPlace);
