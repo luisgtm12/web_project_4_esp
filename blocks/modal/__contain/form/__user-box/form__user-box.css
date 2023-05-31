@@ -11,3 +11,9 @@
   outline: none;
   background: transparent;
 }
+.form__user-box:invalid {
+  border-bottom: 1px solid red;
+}
+.form__user-box:valid {
+  border-bottom: 1px solid green;
+}

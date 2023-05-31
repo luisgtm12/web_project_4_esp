@@ -40,8 +40,10 @@
         <img id="close-icon1" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
         <h4 class="modal__contain-title">Edit profile</h4>
         <form id="submit-button1" class="form">
-            <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau">
-            <input class="form__user-box" id="user-about" type="text" placeholder="Acerca de mi" value="Explorador">
+            <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau" minlength="2" maxlength="40" required>
+            <span class="form_invalid"></span>
+            <input class="form__user-box" id="user-about" type="text" placeholder="Acerca de mi" value="Explorador" minlength="2" maxlength="200" required>
+            <span class="form_invalid"></span>
             <button type="submit" class="form__button-submit">Guadar</button>
         </form>
       </div>
@@ -51,8 +53,10 @@
           <img id="close-icon2" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Nuevo lugar</h4>
           <form id="submit-button2" class="form">
-              <input class="form__user-box" id="place-title" type="text" placeholder="Título">
-              <input class="form__user-box" id="place-link" type="link" placeholder="Enlace a la imagen">
+              <input class="form__user-box" id="place-title" type="text" placeholder="Título" minlength="2" maxlength="30" required>
+              <span class="form_invalid"></span>
+              <input class="form__user-box" id="place-link" type="url" placeholder="Enlace a la imagen" required>
+              <span class="form_invalid"></span>
               <button type="submit" class="form__button-submit">Crear</button>
           </form>
         </div>
