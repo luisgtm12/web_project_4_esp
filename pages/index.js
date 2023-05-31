@@ -163,6 +163,8 @@ function handleAddPlace (event) {
 
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  const errorButton = formElement.querySelector(".form__button-submit");
+  errorButton.classList.add("form__button-submit_invalid");
   inputElement.classList.add("form__input-error");
   errorElement.textContent = errorMessage;
   errorElement.classList.add("form__input-error_active");
@@ -170,6 +172,8 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  const errorButton = formElement.querySelector(".form__button-submit");
+  errorButton.classList.remove("form__button-submit_invalid");
   inputElement.classList.remove("form__input-error");
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
