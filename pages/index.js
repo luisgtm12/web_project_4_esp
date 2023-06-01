@@ -1,34 +1,15 @@
 const editButton = document.querySelector('.profile__edit-button');
-const modalProfile = document.querySelector('#modal1');
-const closeIcon = document.querySelector('#close-icon1');
-const modalForm = document.querySelector('#form-1');
-
-
-function handleDisplayModal () {
-  modalProfile.classList.toggle("modal__opened");
-};
-
-function handleProfileForm (event) {
-  event.preventDefault();
-
-  const userName = document.querySelector('#user-name').value;
-  const userAbout = document.querySelector('#user-about').value;
-
-  const profileName = document.querySelector('.profile__content-name');
-  const profileWorkstation = document.querySelector('.profile__content-workstation');
-
-  profileName.textContent = userName;
-  profileWorkstation.textContent = userAbout;
-
-  handleDisplayModal();
-};
-
-editButton.addEventListener('click', handleDisplayModal);
-closeIcon.addEventListener('click', handleDisplayModal);
-modalForm.addEventListener('submit', handleProfileForm);
-console.log(handleProfileForm);
-
-//Nuevo Form
+const modalProfile = document.querySelector('#modal-profile');
+const closeIcon = document.querySelector('#close-icon-profile');
+const modalForm = document.querySelector('#form-profile');
+const modalPlace = document.querySelector('#modal-place');
+const closePlace = document.querySelector('#close-icon-place');
+const formPlace = document.querySelector('#form-place');
+const places = document.getElementById('places');
+const modalImg = document.querySelector('#modal-img');
+const modalImgSrc = document.querySelector('#modal-img-src');
+const modalImgTitle = document.querySelector('#modal-img-title');
+const addButton = document.querySelector('.profile__add-button');
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -56,13 +37,32 @@ const initialCards = [
   }
 ];
 
-const modalPlace = document.querySelector('#modal2');
-const closePlace = document.querySelector('#close-icon2');
-const formPlace = document.querySelector('#form-2');
-const places = document.getElementById('places');
-const modalImg = document.querySelector('#modal-img');
-const modalImgSrc = document.querySelector('#modal-img-src');
-const modalImgTitle = document.querySelector('#modal-img-title');
+function handleDisplayModal () {
+  modalProfile.classList.toggle("modal__opened");
+};
+
+function handleProfileForm (event) {
+  event.preventDefault();
+
+  const userName = document.querySelector('#user-name').value;
+  const userAbout = document.querySelector('#user-about').value;
+
+  const profileName = document.querySelector('.profile__content-name');
+  const profileWorkstation = document.querySelector('.profile__content-workstation');
+
+  profileName.textContent = userName;
+  profileWorkstation.textContent = userAbout;
+
+  handleDisplayModal();
+};
+
+editButton.addEventListener('click', handleDisplayModal);
+closeIcon.addEventListener('click', handleDisplayModal);
+modalForm.addEventListener('submit', handleProfileForm);
+console.log(handleProfileForm);
+
+//Nuevo Form
+
 
 console.log(places);
 
@@ -98,7 +98,7 @@ function createCardElements (cardId, cardLink, cardName, likeId){
   const deletedButton = document.createElement("img");
   deletedButton.src = "./images/trash-icon.png";
   deletedButton.classList.add("places-card__trash");
-  deletedButton.addEventListener("click", () =>deletedPlace(cardId));
+  deletedButton.addEventListener("click", () => deletedPlaces(cardId));
   divPlaces.appendChild(deletedButton);
 
   const cardImg = document.createElement("img");
@@ -146,7 +146,7 @@ function handleDisplayModalPlace () {
   modalPlace.classList.toggle("modal__opened")
 };
 
-const addButton = document.querySelector('.profile__add-button');
+
 
 /* controlador de modal places */
 function handleAddPlace (event) {
@@ -159,55 +159,6 @@ function handleAddPlace (event) {
   places.appendChild(divPlaces);
   handleDisplayModalPlace ();
 };
-
-
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  const errorButton = formElement.querySelector(".form__button-submit");
-  errorButton.classList.add("form__button-submit_invalid");
-  inputElement.classList.add("form__input-error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  const errorButton = formElement.querySelector(".form__button-submit");
-  errorButton.classList.remove("form__button-submit_invalid");
-  inputElement.classList.remove("form__input-error");
-  errorElement.classList.remove("form__input-error_active");
-  errorElement.textContent = "";
-};
-
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
-  }
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__user-box"));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
-    });
-  });
-};
-
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    setEventListeners(formElement);
-  });
-};
-
-enableValidation();
 
 console.log(handleAddPlace);
 formPlace.addEventListener('submit', handleAddPlace);

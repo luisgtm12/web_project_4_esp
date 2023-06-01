@@ -35,11 +35,11 @@
         </footer>
       </main>
     </div>
-    <div id="modal1" class="modal">
+    <div id="modal-profile" class="modal">
       <div class="modal__contain">
-        <img id="close-icon1" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+        <img id="close-icon-profile" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
         <h4 class="modal__contain-title">Edit profile</h4>
-        <form id="form-1" class="form">
+        <form id="form-profile" class="form" novalidate>
             <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau" minlength="2" maxlength="40" required>
             <span class="user-name-error "></span>
             <input class="form__user-box" id="user-about" type="text" placeholder="Acerca de mi" value="Explorador" minlength="2" maxlength="200" required>
@@ -48,11 +48,11 @@
         </form>
       </div>
       </div>
-      <div id="modal2" class="modal">
+      <div id="modal-place" class="modal">
         <div class="modal__contain">
-          <img id="close-icon2" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <img id="close-icon-place" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Nuevo lugar</h4>
-          <form id="form-2" class="form">
+          <form id="form-place" class="form" novalidate>
               <input class="form__user-box" id="place-title" type="text" placeholder="Título" minlength="2" maxlength="30" required>
               <span class="place-title-error"></span>
               <input class="form__user-box" id="place-link" type="url" placeholder="Enlace a la imagen" required>
@@ -69,5 +69,6 @@
         </div>
       </div>
     <script src="./pages/index.js"></script>
+    <script src="./pages/validate.js"></script>
   </body>
 </html>
