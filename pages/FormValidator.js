@@ -19,13 +19,22 @@ const hideInputError = (formElement, inputElement) => {
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
-    modalForm.removeEventListener('submit', handleProfileForm);
-    formPlace.removeEventListener('submit', handleAddPlace);
   } else {
     hideInputError(formElement, inputElement);
-    modalForm.addEventListener('submit', handleProfileForm);
-    formPlace.addEventListener('submit', handleAddPlace);
   }
+
+  const inputList = Array.from(formElement.querySelectorAll('.form__user-box'));
+  let formIsValid = true;
+  for (let i = 0; i < inputList.length; i++) {
+    const input = inputList[i];
+    if (!input.validity.valid) {
+      formIsValid = false;
+      break;
+    }
+  }
+  const buttonForm = formElement.querySelector(".form__button-submit");
+  buttonForm.disabled = !formIsValid;
+
 };
 
 const setEventListeners = (formElement) => {
@@ -49,3 +58,11 @@ const enableValidation = () => {
 };
 
 enableValidation();
+
+document.onkeydown = function (evt) {
+
+  if (evt.key === "Escape") {
+    modalProfile.classList.remove('modal__opened');
+    modalPlace.classList.remove('modal__opened');
+  }
+};
