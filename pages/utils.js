@@ -19,14 +19,6 @@ function handleProfileForm (event) {
 };
 
 
-/*function handleModalImg ( imgSrc, title) {
-  
-  modalImgSrc.src = imgSrc;
-  modalImgTitle.textContent = title;
-
-  handleDisplayModalImg ();
-};*/
-
 /* funcion de modal 2 */
 function handleDisplayModalPlace () {
   modalPlace.classList.toggle("modal__opened")
@@ -41,4 +33,3 @@ closeIcon.addEventListener('click', handleDisplayModal);
 formProfile.addEventListener('submit',handleProfileForm);
 addButton.addEventListener('click', handleDisplayModalPlace);
 closePlace.addEventListener('click',handleDisplayModalPlace);
-/*modalImg.addEventListener('click',handleDisplayModalImg);*/

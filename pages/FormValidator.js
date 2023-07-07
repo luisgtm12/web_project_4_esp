@@ -1,63 +1,57 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  const errorButton = formElement.querySelector(".form__button-submit");
-  errorButton.classList.add("form__button-submit_invalid");
-  inputElement.classList.add("form__input-error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  const errorButton = formElement.querySelector(".form__button-submit");
-  errorButton.classList.remove("form__button-submit_invalid");
-  inputElement.classList.remove("form__input-error");
-  errorElement.classList.remove("form__input-error_active");
-  errorElement.textContent = "";
-};
-
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
+class FormValidator {
+  constructor(id){
+    this.element = document.getElementById(id);
   }
 
-  const inputList = Array.from(formElement.querySelectorAll('.form__user-box'));
-  let formIsValid = true;
-  for (let i = 0; i < inputList.length; i++) {
-    const input = inputList[i];
-    if (!input.validity.valid) {
-      formIsValid = false;
-      break;
+  //Metodos privados
+  _checkInputValidity(inputElement){
+    const errorElement = this.element.querySelector(`.${inputElement.id}-error`);
+    if (inputElement.validity.valid) {
+      errorButton.classList.remove("form__button-submit_invalid");
+      inputElement.classList.remove("form__input-error");
+      errorElement.classList.remove("form__input-error_active");
+      errorElement.textContent = "";
+    } else {
+      errorButton.classList.add("form__button-submit_invalid");
+      inputElement.classList.add("form__input-error");
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add("form__input-error_active");
     }
-  }
-  const buttonForm = formElement.querySelector(".form__button-submit");
-  buttonForm.disabled = !formIsValid;
+    
+    //Validando los inputs
+    const inputList = Array.from(this.element.querySelectorAll('.form__user-box'));
+    let formIsValid = true;
+    for (let i = 0; i < inputList.length; i++) {
+      const input = inputList[i];
+      if (!input.validity.valid) {
+        formIsValid = false;
+        break;
+      }
+    }
+    const buttonForm = this.element.querySelector(".form__button-submit");
+    buttonForm.disabled = !formIsValid;
+  
+  };
 
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__user-box"));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
+  _setEventListeners(){
+    const self = this;
+    const inputList = Array.from(this.element.querySelectorAll(".form__user-box"));
+    inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", function () {
+        self._checkInputValidity(inputElement);
+      });
     });
-  });
-};
+  };
 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    setEventListeners(formElement);
-  });
-};
-
-enableValidation();
+  // Metodo publico
+  enableValidation(){
+    this.element.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+      });
+  
+      this._setEventListeners();
+    };
+  };
 
 document.onkeydown = function (evt) {
 
@@ -66,3 +60,11 @@ document.onkeydown = function (evt) {
     modalPlace.classList.remove('modal__opened');
   }
 };
+
+//Instanciando cada Formulario
+const formProfileValidator = new FormValidator("form-profile");
+const formPlaceValidator = new FormValidator("form-place");
+
+// Ejecutando el metodo `enableValidation` en ambas clases
+formProfileValidator.enableValidation();
+formPlaceValidator.enableValidation();
