@@ -10,3 +10,4 @@ const modalImg = document.querySelector('#modal-img');
 const modalImgSrc = document.querySelector('#modal-img-src');
 const modalImgTitle = document.querySelector('#modal-img-title');
 const addButton = document.querySelector('.profile__add-button');
+const buttonSubmit = document.querySelector('.form__button-submit');
