@@ -5,6 +5,7 @@ class FormValidator {
 
   //Metodos privados
   _checkInputValidity(inputElement){
+    console.log(inputElement.validationMessage)
     const errorElement = this.element.querySelector(`.${inputElement.id}-error`);
     if (inputElement.validity.valid) {
       errorButton.classList.remove("form__button-submit_invalid");
@@ -14,7 +15,7 @@ class FormValidator {
     } else {
       errorButton.classList.add("form__button-submit_invalid");
       inputElement.classList.add("form__input-error");
-      errorElement.textContent = errorMessage;
+      errorElement.textContent = inputElement.validationMessage;
       errorElement.classList.add("form__input-error_active");
     }
     
