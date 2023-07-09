@@ -1,4 +1,6 @@
-  
+import {places, modalProfile, modalPlace, editButton,
+  closeIcon,formProfile, addButton, closePlace, formPlace} from "./index.js";
+import { CreatedCards } from "./Card.js";
 function handleDisplayModal () {
   modalProfile.classList.toggle("modal__opened");
 };
@@ -18,18 +20,23 @@ function handleProfileForm (event) {
   handleDisplayModal();
 };
 
-
 /* funcion de modal 2 */
 function handleDisplayModalPlace () {
   modalPlace.classList.toggle("modal__opened")
 };
-
-
-/* controlador de modal places */
-
+const handleAddPlace=( (event) => {
+  event.preventDefault();
+  const name = document.querySelector('#place-title').value;
+  const link = document.querySelector('#place-link').value;
+  const card = new CreatedCards([name, link],".card");
+  const divPlaces = card.generateCard();
+  places.append(divPlaces);
+  handleDisplayModalPlace ();
+});
 
 editButton.addEventListener('click', handleDisplayModal);
 closeIcon.addEventListener('click', handleDisplayModal);
 formProfile.addEventListener('submit',handleProfileForm);
 addButton.addEventListener('click', handleDisplayModalPlace);
 closePlace.addEventListener('click',handleDisplayModalPlace);
+formPlace.addEventListener('submit', handleAddPlace);
