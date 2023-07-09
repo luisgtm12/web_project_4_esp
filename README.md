@@ -4,6 +4,8 @@
 
 * Figma
 * Imágenes
+* Validacion de formularios
+* Class
 
 **Figma**
 
