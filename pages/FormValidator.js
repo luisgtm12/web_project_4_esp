@@ -57,14 +57,5 @@ class FormValidator {
     };
   };
 
-document.onkeydown = function (evt) {
-
-  if (evt.key === "Escape") {
-    modalProfile.classList.remove('modal__opened');
-    modalPlace.classList.remove('modal__opened');
-  }
-};
-
-
 
 export {FormValidator};

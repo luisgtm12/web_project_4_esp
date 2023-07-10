@@ -1,4 +1,4 @@
-import { DefaultCards,} from "./Card.js";
+import { DefaultCards} from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
 export const initialCards = [
