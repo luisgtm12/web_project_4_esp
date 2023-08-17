@@ -1,5 +1,5 @@
-import { DefaultCards} from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
+import { DefaultCards} from "./components/Card.js";
+import { FormValidator } from "./components/FormValidator.js";
 
 export const initialCards = [
   {
@@ -35,11 +35,13 @@ export const modalPlace = document.querySelector('#modal-place');
 export const closePlace = document.querySelector('#close-icon-place');
 export const formPlace = document.querySelector('#form-place');
 export const places = document.getElementById('places');
-export const modalImg = document.querySelector('#modal-img');
-export const modalImgSrc = document.querySelector('#modal-img-src');
-export const modalImgTitle = document.querySelector('#modal-img-title');
+
 export const addButton = document.querySelector('.profile__add-button');
 export const buttonSubmit = document.querySelector('.form__button-submit');
+export const profileName = document.querySelector('.profile__content-name');
+export const profileWorkstation = document.querySelector('.profile__content-workstation');
+export const closeImagePopUp = document.querySelector('.modal__close-icon')
+
 //Instanciando cada Formulario
 const formProfileValidator = new FormValidator("form-profile");
 const formPlaceValidator = new FormValidator("form-place");

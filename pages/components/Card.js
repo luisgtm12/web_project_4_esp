@@ -1,6 +1,9 @@
-import {  modalImg ,modalImgSrc,modalImgTitle } from "./index.js";
+import {  modalImg  } from "./constants.js";
+import { popupWithImg } from "./PopupWithImage.js";
 class Card {
-  constructor(cardSelector) {
+  constructor(data,cardSelector) {
+    this._link = data.link;
+    this._name = data.name;
     this._cardSelector = cardSelector
   }
   _getTemplate() {
@@ -15,15 +18,14 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._setEventListeners();
     
     this._element.querySelector(".places-card__image").src = this._link;
-    this._element.querySelector(".places-card__image").alt = this._name;
+    this._element.querySelector(".places-card__image").alt = `imagen de ${this._name}`;
     this._element.querySelector(".places-card__contain_title").textContent = this._name;
-    this._element.querySelector(".places-card__image").addEventListener("click",() => 
-    this._modalImg(this._link,this._name));
     this._deletedPlace();
     this._handleLike();
-    this._modalImg();
+    
     this._closeIcon();
 
     return this._element;
@@ -41,17 +43,18 @@ class Card {
     });
   }
 
-  _modalImg(){
+  /*_modalImg(){
     modalImgSrc.src = this._link;
     modalImgSrc.alt = this._name;
     modalImgTitle.textContent = this._name;
     
     this._handleModalImgOpen();
-  }
+  }*/
 
-  _handleModalImgOpen() {
+  _setEventListeners() {
+    
     this._element.querySelector(".places-card__image").addEventListener("click", ()=>{
-      modalImg.classList.add("modal__opened");
+      popupWithImg.open(this._link, this._name);
     })
   }
   
@@ -68,6 +71,7 @@ class DefaultCards extends Card {
     super(cardSelector);
     this._link = data.link;
     this._name = data.name;
+    this._cardSelector=cardSelector;
   }
 
 }

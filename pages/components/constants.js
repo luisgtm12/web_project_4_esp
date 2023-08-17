@@ -1,0 +1,1 @@
+export const modalImg = document.querySelector('#modal-img');

@@ -1,6 +1,8 @@
 import {places, modalProfile, modalPlace, editButton,
-  closeIcon,formProfile, addButton, closePlace, formPlace} from "./index.js";
-import { CreatedCards } from "./Card.js";
+  closeIcon,formProfile, addButton, closePlace, formPlace, 
+profileName,profileWorkstation} from "./index.js";
+import { modalImg } from "./components/constants.js";
+import { CreatedCards } from "./components/Card.js";
 function handleDisplayModal () {
   modalProfile.classList.toggle("modal__opened");
 };
@@ -11,8 +13,6 @@ function handleProfileForm (event) {
   const userName = document.querySelector('#user-name').value;
   const userAbout = document.querySelector('#user-about').value;
 
-  const profileName = document.querySelector('.profile__content-name');
-  const profileWorkstation = document.querySelector('.profile__content-workstation');
 
   profileName.textContent = userName;
   profileWorkstation.textContent = userAbout;
@@ -36,6 +36,7 @@ const handleAddPlace=( (event) => {
 document.onkeydown = function (evt) {
 
   if (evt.key === "Escape") {
+    modalImg.classList.remove('modal__opened');
     modalProfile.classList.remove('modal__opened');
     modalPlace.classList.remove('modal__opened');
   }

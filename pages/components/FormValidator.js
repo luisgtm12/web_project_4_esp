@@ -1,4 +1,4 @@
-import { buttonSubmit } from "./index.js";
+import { buttonSubmit } from "../index.js";
 class FormValidator {
   constructor(id){
     this.element = document.getElementById(id);
