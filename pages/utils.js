@@ -1,5 +1,6 @@
 import {places, modalProfile, modalPlace, editButton,
-  closeIcon,formProfile, addButton, closePlace, formPlace} from "./index.js";
+  closeIcon,formProfile, addButton, closePlace, formPlace, modalImg} from "./index.js";
+  
 import { CreatedCards } from "./Card.js";
 function handleDisplayModal () {
   modalProfile.classList.toggle("modal__opened");
@@ -36,6 +37,7 @@ const handleAddPlace=( (event) => {
 document.onkeydown = function (evt) {
 
   if (evt.key === "Escape") {
+    modalImg.classList.remove('modal__opened');
     modalProfile.classList.remove('modal__opened');
     modalPlace.classList.remove('modal__opened');
   }
