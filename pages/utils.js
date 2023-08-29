@@ -1,7 +1,7 @@
-import {places, modalProfile, modalPlace, editButton,
-  closeIcon,formProfile, addButton, closePlace, formPlace, 
+import {places, modalProfile, editButton,
+  closeIcon,formProfile, closePlace, formPlace, 
 profileName,profileWorkstation} from "./index.js";
-import { modalImg } from "./components/constants.js";
+import { modalImg, addButton, modalPlace } from "./components/constants.js";
 import { CreatedCards } from "./components/Card.js";
 function handleDisplayModal () {
   modalProfile.classList.toggle("modal__opened");

@@ -1,14 +1,14 @@
 export default class Popup {
   constructor(popupSelector){
     this._popupSelector = popupSelector;
-    this._form = popupSelector.querySelector('.form')
+    this._handleEscClose();
   }
   open(){
     this._popupSelector.classList.add("modal__opened");
   }
 
   close(){
-    this._popupSelector.remove("modal__opened")
+    this._popupSelector.classList.remove("modal__opened")
   }
 
   _handleEscClose(){
