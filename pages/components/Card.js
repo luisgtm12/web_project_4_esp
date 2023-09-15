@@ -79,8 +79,9 @@ class DefaultCards extends Card {
 class CreatedCards extends Card{
   constructor(data, cardSelector){
   super(cardSelector);
-  this._link = data[1];
-  this._name = data[0];
+  this._link = data.link;
+    this._name = data.name;
+    this._cardSelector=cardSelector;
 }
 
 }

@@ -1,8 +1,9 @@
 import { profileName, profileWorkstation } from "../index.js";
 class UserInfo {
-  constructor({nameSelector, aboutSelector}){
-    this._userName = document.querySelector(nameSelector);
-    this._userAbout = document.querySelector(aboutSelector);
+  constructor(userData){
+    this._userData = userData;
+    this._userName = this._userData.userName;
+    this._userAbout = this._userData.userAbout;
   }
 
   getUserInfo(){
@@ -15,3 +16,5 @@ class UserInfo {
     profileWorkstation.textContent = this._userAbout.value;
   }
 }
+
+export {UserInfo};

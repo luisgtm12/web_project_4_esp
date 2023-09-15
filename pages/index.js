@@ -1,7 +1,8 @@
 import { DefaultCards} from "./components/Card.js";
 import { FormValidator } from "./components/FormValidator.js";
 import PopupWithForm from "./components/PopupWithForm.js";
-import { addButton, modalPlace } from "./components/constants.js";
+import { addButton, modalPlace,
+  places,editButton, modalProfile } from "./components/constants.js";
 
 export const initialCards = [
   {
@@ -29,19 +30,18 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
 ];
-export const editButton = document.querySelector('.profile__edit-button');
-export const modalProfile = document.querySelector('#modal-profile');
+
+
 export const closeIcon = document.querySelector('#close-icon-profile');
 export const formProfile = document.querySelector('#form-profile');
 
 export const closePlace = document.querySelector('#close-icon-place');
 export const formPlace = document.querySelector('#form-place');
-export const places = document.getElementById('places');
+
 
 
 export const buttonSubmit = document.querySelector('.form__button-submit');
-export const profileName = document.querySelector('.profile__content-name');
-export const profileWorkstation = document.querySelector('.profile__content-workstation');
+
 export const closeImagePopUp = document.querySelector('.modal__close-icon')
 
 //Instanciando cada Formulario
@@ -55,12 +55,19 @@ initialCards.forEach((item) => {
   places.append(cardElement);
 })
 
-export const popUpWithForm = new PopupWithForm(()=>{}, modalPlace)
-popUpWithForm.setEventListeners();
+const popUpWithProfile = new PopupWithForm(modalProfile)
+editButton.addEventListener("click",()=>{
+  popUpWithProfile.open();
+})
+popUpWithProfile.setEventListeners();
+
+const popUpWithPlace = new PopupWithForm(modalPlace)
+
 
 addButton.addEventListener("click",()=>{
-  popUpWithForm.open();
+  popUpWithPlace.open();
 });
+popUpWithPlace.setEventListeners();
 
 // Ejecutando el metodo `enableValidation` en ambas clases
 formProfileValidator.enableValidation();
