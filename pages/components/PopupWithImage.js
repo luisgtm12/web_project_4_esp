@@ -14,7 +14,9 @@ export class PopupWithImage extends Popup {
     modalImg.src = link;
     modalImg.alt = `Imagen de ${title}`;
     modalImgTitle.textContent = title;
+    super._handleEscClose();
   }
+
 }
 export const popupWithImg = new PopupWithImage( modalImg);
 popupWithImg.setEventListeners();

@@ -1,19 +1,18 @@
-import { profileName, profileWorkstation } from "../index.js";
-class UserInfo {
+
+export default class UserInfo {
   constructor(userData){
     this._userData = userData;
-    this._userName = this._userData.userName;
-    this._userAbout = this._userData.userAbout;
+    this._userName = userData.userName;
+    this._userAbout = userData.userAbout;
   }
 
   getUserInfo(){
-    this._userName.value = userName.textContent;
-    this._userAboutMe.value = userAbout.textContent;
+    return (this._userData);
   }
 
-  setUserInfo(){
-    profileName.textContent = this._userName.value;
-    profileWorkstation.textContent = this._userAbout.value;
+  setUserInfo(name, about){
+    name.textContent = this._userName;
+    about.textContent = this._userAbout;
   }
 }
 

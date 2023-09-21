@@ -58,16 +58,28 @@ initialCards.forEach((item) => {
 const popUpWithProfile = new PopupWithForm(modalProfile)
 editButton.addEventListener("click",()=>{
   popUpWithProfile.open();
+  popUpWithProfile.setEventListeners();
 })
-popUpWithProfile.setEventListeners();
+
+popUpWithProfile._form.addEventListener("submit", (event)=>{
+  event.preventDefault();
+  popUpWithProfile.setSubmitListeners();
+})
+
 
 const popUpWithPlace = new PopupWithForm(modalPlace)
 
 
 addButton.addEventListener("click",()=>{
   popUpWithPlace.open();
+  popUpWithPlace._handleEscClose();
+  popUpWithPlace.setEventListeners();
 });
-popUpWithPlace.setEventListeners();
+
+popUpWithPlace._form.addEventListener("submit", (event)=>{
+  event.preventDefault();
+  popUpWithPlace.setSubmitListeners();
+})
 
 // Ejecutando el metodo `enableValidation` en ambas clases
 formProfileValidator.enableValidation();
