@@ -1,3 +1,5 @@
+import trashIcon from "/src/images/trash-icon.png"
+import likeIcon from "/src/images/corazon.png"
 import {  modalImg  } from "./constants.js";
 import { popupWithImg } from "./PopupWithImage.js";
 class Card {
@@ -18,6 +20,8 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._element.querySelector(".places-card__trash").src = trashIcon;
+    this._element.querySelector(".places-card__contain_like").src = likeIcon;
     this._setEventListeners();
     
     this._element.querySelector(".places-card__image").src = this._link;

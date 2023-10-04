@@ -1,4 +1,4 @@
-@import url('/vendor/normalize.css');
+@import url('../vendor/normalize.css');
 @import url('../fonts/inter/inter.css');
 @import url('../root/root.css');
 @import url('../blocks/header/-logo/header-logo.css');
@@ -27,7 +27,7 @@
 @import url('../blocks/modal/__contain/form/__user-box/form__user-box.css');
 @import url('../blocks/modal/__contain/form/__button-submit/form__button-submit.css');
 @import url('../blocks/modal/__contain/form/__input-error/form__input-error.css');
-@import url('../blocks/media-queries/media-queries.css');
 @import url('../blocks/modal/__contain/-img/modal__contain-img.css');
 @import url('../blocks/modal/__img/modal__img.css');
 @import url('../blocks/modal/__title/modal__title.css');
+@import url('../blocks/media-queries/media-queries.css');
