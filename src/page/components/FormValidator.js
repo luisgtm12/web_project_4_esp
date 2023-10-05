@@ -1,4 +1,4 @@
-import { buttonSubmit } from "./index.js";
+import { buttonSubmit } from "./constants";
 class FormValidator {
   constructor(id){
     this.element = document.getElementById(id);
@@ -7,19 +7,17 @@ class FormValidator {
   //Metodos privados
   _checkInputValidity(inputElement){
     const errorElement = this.element.querySelector(`.${inputElement.id}-error`);
-    console.log(inputElement.validationMessage)
     if (inputElement.validity.valid) {
       buttonSubmit.classList.remove("form__button-submit_invalid");
       inputElement.classList.remove("form__input-error");
       errorElement.classList.remove("form__input-error_active");
       errorElement.textContent = "";
-      console.log(inputElement.validationMessage)
     } else {
       buttonSubmit.classList.add("form__button-submit_invalid");
       inputElement.classList.add("form__input-error");
       errorElement.textContent = inputElement.validationMessage;
       errorElement.classList.add("form__input-error_active");
-      console.log(inputElement.validationMessage)
+  
     }
     
     //Validando los inputs

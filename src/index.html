@@ -4,7 +4,10 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD:index.html
     <link rel="StyleSheet" href="./pages/index.css">
+=======
+>>>>>>> featue/coupling-classes:src/index.html
     <link rel="icon" href="/images/logo/tripleTen.jpg">
     <title>Alrededor de los EEUU</title>
   </head>
@@ -12,19 +15,19 @@
     <div class="page">
       <main>
         <header>
-          <img src="./images/logo/logo-around.png" alt="Logo de Around" class="header-logo">
+          <img alt="Logo de Around" class="header-logo">
           <hr class="header-line">
         </header>
         <section>
           <div class="profile">
-            <img src="./images/avatar.png" alt="foto de perfil">
+            <img id="avatar" alt="foto de perfil">
             <div class="profile__content">
               <h2 class="profile__content-name">Jacques Cousteau</h2>
               <h3 class="profile__content-workstation">Explorador</h3>
-              <img src="./images/edit-icon.png" alt="boton de editar" class="profile__edit-button">
+              <img alt="boton de editar" class="profile__edit-button">
             </div>
             <button class="profile__add-button">
-              <img src="./images/icono-add.png" alt="icono de simbolo +" type="button">
+              <img id="add-icon" alt="icono de simbolo +" type="button">
             </button>
           </div>
         </section>
@@ -65,25 +68,26 @@
       </div>
       <div id="modal-img" class="modal">
         <div class="modal__contain-img">
+<<<<<<< HEAD:index.html
           <img id="close-icon3" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
           <img id="modal-img-src" class="modal__img" src=" ">
+=======
+          <img id="close-icon-image" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <img id="modal-img-src" class="modal__img" src="" alt="paisaje">
+>>>>>>> featue/coupling-classes:src/index.html
           <h4 id="modal-img-title" class="modal__title"></h4>
         </div>
       </div>
       <template class="card">
         <div class="places-card">
-          <img src="./images/trash-icon.png" class="places-card__trash">
+          <img class="places-card__trash" alt="tachito de basura">
           <img src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" 
           alt="Photo Valle de Yosemite" class="places-card__image">
           <div class="places-card__contain">
             <p class="places-card__contain_title">Valle de Yosemite</p>
-            <img id="like-0" src="./images/corazon.png" alt="icono de corazon" class="places-card__contain_like">
+            <img id="like-0" alt="icono de corazon" class="places-card__contain_like">
           </div>
         </div>
       </template>
-    <script type="module" src="./pages/index.js"></script>
-    <script type="module" src="./pages/utils.js"></script>
-    <script type="module" src="./pages/FormValidator.js"></script>
-    <script type="module" src="./pages/Card.js"></script>
   </body>
 </html>
