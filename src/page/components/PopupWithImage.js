@@ -20,3 +20,10 @@ export class PopupWithImage extends Popup {
 }
 export const popupWithImg = new PopupWithImage( modalImg);
 popupWithImg.setEventListeners();
+
+// Cerrar cuando dos click fuera del contenido
+modalImg.addEventListener("click", (event)=>{
+  if (event.target.id !== "modal-img") {
+    popupWithImg.close();
+  }
+});
