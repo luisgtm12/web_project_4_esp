@@ -1,11 +1,18 @@
-# Proyecto 4: Alrededor de los Estados Unidos
+# Proyecto 9: Alrededor de los Estados Unidos
+** Introduccion**
+
+Proyecto tipo red social, con implementacion de usuario, tarjetas con imagenes y likes.Aplicando los conocimientos de JavaScript
 
 ### Descripción general
 
 * Figma
 * Imágenes
+* Metodologia Bem
 * Validacion de formularios
-* Class
+* Creacion de Clases
+* Metdos en las Clases
+* Herencia de Clases
+* Retrocompatibilidad con navegadores
 
 **Figma**
 
@@ -15,4 +22,6 @@
 
 A la hora de trabajar, debes optar por exportar las imágenes directamente desde Figma; te recomendamos hacerlo para practicar más. No olvides optimizarlas [aquí](https://tinypng.com/), para que tu proyecto cargue más rápido. 
 
+**GitHub Pages**
+Enlace de mi proyecto [GitHud Pages](https://luisgtm12.github.io/web_project_4_esp/)
 ¡Esperamos que te diviertas con JavaScript!
