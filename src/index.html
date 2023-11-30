@@ -16,7 +16,8 @@
         </header>
         <section>
           <div class="profile">
-            <img id="avatar" alt="foto de perfil">
+            <div class="profile-avatar_overlay"></div>
+            <img id="avatar" alt="foto de perfil" class="profile-avatar">
             <div class="profile__content">
               <h2 class="profile__content-name">Jacques Cousteau</h2>
               <h3 class="profile__content-workstation">Explorador</h3>
@@ -67,6 +68,24 @@
           <img id="close-icon-image" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
           <img id="modal-img-src" class="modal__img" src=" " alt="paisaje">
           <h4 id="modal-img-title" class="modal__title"></h4>
+        </div>
+      </div>
+      <div id="modal-confirm" class="modal">
+        <div class="modal__contain-confirmation">
+          <img id="close-icon-confirm" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <h4 class="modal__contain-confirmation_title">¿Estás seguro?</h4>
+          <button type="submit" class="modal__contain-confirmation_button">Si</button>
+        </div>
+      </div>
+      <div id="modal-edit-photo" class="modal">
+        <div class="modal__contain">
+          <img id="close-icon-edit-photo" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <h4 class="modal__contain-title">Cambiar foto de perfil</h4>
+          <form id="form-edit-photo" class="form" novalidate>
+              <input class="form__user-box" id="edit-photo-title" type="link" placeholder="Imagen de perfil" required>
+              <span class="place-link-error"></span>
+              <button type="submit" class="form__button-submit">Guardar</button>
+          </form>
         </div>
       </div>
       <template class="card">

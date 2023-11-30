@@ -39,3 +39,5 @@ export const closePlace = document.querySelector('#close-icon-place');
 export const formPlace = document.querySelector('#form-place');
 export const buttonSubmit = document.querySelector('.form__button-submit');
 export const closeImagePopUp = document.getElementById('close-icon-image');
+export const closeConfirmPopUp = document.getElementById('close-icon-confirm');
+export const closeEditPhotoPoup = document.getElementById('close-icon-edit-photo');

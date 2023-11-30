@@ -9,7 +9,7 @@ import { FormValidator } from "./components/FormValidator.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import { addButton, modalPlace,
   places,editButton, modalProfile,initialCards,
-  closeIcon,closePlace,closeImagePopUp
+  closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,closeEditPhotoPoup
   } from "./components/constants.js";
 
   const logoAroundTheWord = document.querySelector(".header-logo");
@@ -23,6 +23,8 @@ import { addButton, modalPlace,
   closeImagePopUp.src =iconX;
   editButton.src = editIcon;
   addImage.src = addIcon;
+  closeConfirmPopUp.src = iconX;
+  closeEditPhotoPoup.src = iconX;
 
 
 //Instanciando cada Formulario
