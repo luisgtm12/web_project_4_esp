@@ -1,7 +1,8 @@
 import trashIcon from "/src/images/trash-icon.png"
 import likeIcon from "/src/images/corazon.png"
-import {  modalImg  } from "./constants.js";
+import {  modalImg ,modalConfirmation, btnConfirmation } from "./constants.js";
 import { popupWithImg } from "./PopupWithImage.js";
+import Popup from "./Popup.js";
 class Card {
   constructor(data,cardSelector) {
     this._link = data.link;
@@ -43,7 +44,13 @@ class Card {
 
   _deletedPlace() {
     this._element.querySelector(".places-card__trash").addEventListener("click", ()=>{
-    this._element.remove();
+    const popUpConfirmationCard = new Popup(modalConfirmation);
+    popUpConfirmationCard.setEventListeners();
+    popUpConfirmationCard.open();
+    btnConfirmation.addEventListener("click",()=>{
+      this._element.remove();
+      popUpConfirmationCard.close()
+    })
     });
   }
 

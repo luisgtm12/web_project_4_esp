@@ -1,6 +1,7 @@
 export const modalImg = document.querySelector('#modal-img');
 export const modalPlace = document.querySelector('#modal-place');
 export const modalProfile = document.querySelector('#modal-profile');
+export const modalConfirmation = document.querySelector('#modal-confirm')
 export const addButton = document.querySelector('.profile__add-button');
 export const profileName = document.querySelector('.profile__content-name');
 export const profileWorkstation = document.querySelector('.profile__content-workstation');
@@ -41,3 +42,4 @@ export const buttonSubmit = document.querySelector('.form__button-submit');
 export const closeImagePopUp = document.getElementById('close-icon-image');
 export const closeConfirmPopUp = document.getElementById('close-icon-confirm');
 export const closeEditPhotoPoup = document.getElementById('close-icon-edit-photo');
+export const btnConfirmation = document.getElementById('btn-confirmation');
