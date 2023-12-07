@@ -1,8 +1,8 @@
 import { CreatedCards } from "./Card.js";
 import Popup from "./Popup.js";
-import {valuesForm, places} from "./constants.js"
-import { modalPlace, modalProfile,
-  profileName, profileWorkstation } from "./constants.js";
+import {valuesForm, places, modalAvatar} from "./constants.js"
+import { modalPlace, modalProfile,profileAvatar,
+  profileName, profileWorkstation} from "./constants.js";
   import { UserInfo } from "./UserInfo.js";
 
 export default class PopupWithForm extends Popup {
@@ -11,15 +11,19 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._popupSelector = popupSelector;
     this._form = this._popupSelector.querySelector('.form');
-    this._buttonClose = this._popupSelector.querySelector(".modal__close-icon")
+    this._buttonClose = this._popupSelector.querySelector(".modal__close-icon");
+    this._inputList = this._form.querySelectorAll(".form__user-box");
   }
 
   
   _getInputValue(){
-    this._inputList = this._form.querySelectorAll(".form__user-box");
-    for(let i= 0; i<2; i++){
+    this._inputList.forEach((input)=>{
+      valuesForm[input.name] =input.value;
+    })
+    return valuesForm;
+   /*  for(let i= 0; i<2; i++){
       valuesForm[i]=this._inputList[i].value;
-    }
+    } */
     
   }
   _formAssignment(){
@@ -29,12 +33,21 @@ export default class PopupWithForm extends Popup {
     } else if(this._popupSelector ===modalPlace){
       this._addPlace();
       
+    } else if(this._popupSelector === modalAvatar){
+      this._addAvatar();
     }
   }
+
+  _addAvatar(){
+    const userAvatar = {};
+    userAvatar.link = valuesForm.link;
+    profileAvatar.src = userAvatar.link;
+  }
+
   _addProfile(){
     const userInform = {};
-    userInform.userName = valuesForm[0];
-    userInform.userAbout = valuesForm[1];
+    userInform.userName = valuesForm.name;
+    userInform.userAbout = valuesForm.about;
     const addUserInfo = new UserInfo(userInform);
     addUserInfo.setUserInfo(profileName, profileWorkstation);
     console.log(userInform)
@@ -42,12 +55,11 @@ export default class PopupWithForm extends Popup {
 
   _addPlace(){
     const data = {};
-    data.name = valuesForm[0];
-    data.link = valuesForm[1];
+    data.name = valuesForm.name;
+    data.link = valuesForm.link;
     const newCard = new CreatedCards(data,".card");
     const cardElement= newCard.generateCard();
     places.append(cardElement);
-    
   }
 
   close(){

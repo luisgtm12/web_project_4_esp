@@ -42,10 +42,10 @@
         <img id="close-icon-profile" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
         <h4 class="modal__contain-title">Edit profile</h4>
         <form id="form-profile" class="form" novalidate>
-            <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau" minlength="2" maxlength="40" required>
-            <span class="user-name-error "></span>
-            <input class="form__user-box" id="user-about" type="text" placeholder="Acerca de mi" value="Explorador" minlength="2" maxlength="200" required>
-            <span class="user-about-error "></span>
+            <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau" minlength="2" maxlength="40" name="name" required>
+            <span class="user-name-error"></span>
+            <input class="form__user-box" id="user-about" type="text" placeholder="Acerca de mi" value="Explorador" minlength="2" maxlength="200" name="about" required>
+            <span class="user-about-error"></span>
             <button type="submit" class="form__button-submit">Guardar</button>
         </form>
       </div>
@@ -55,9 +55,9 @@
           <img id="close-icon-place" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Nuevo lugar</h4>
           <form id="form-place" class="form" novalidate>
-              <input class="form__user-box" id="place-title" type="text" placeholder="Título" minlength="2" maxlength="30" required>
+              <input class="form__user-box" id="place-title" type="text" placeholder="Título" minlength="2" maxlength="30" name="name" required>
               <span class="place-title-error"></span>
-              <input class="form__user-box" id="place-link" type="url" placeholder="Enlace a la imagen" required>
+              <input class="form__user-box" id="place-link" type="url" placeholder="Enlace a la imagen" name="link" required>
               <span class="place-link-error"></span>
               <button type="submit" class="form__button-submit">Crear</button>
           </form>
@@ -82,8 +82,8 @@
           <img id="close-icon-edit-photo" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Cambiar foto de perfil</h4>
           <form id="form-edit-photo" class="form" novalidate>
-              <input class="form__user-box" id="edit-photo-title" type="link" placeholder="Imagen de perfil" required>
-              <span class="place-link-error"></span>
+              <input class="form__user-box" id="edit-photo-avatar" type="link" placeholder="Imagen de perfil" name="link" required>
+              <span class="edit-photo-avatar-error"></span>
               <button type="submit" class="form__button-submit">Guardar</button>
           </form>
         </div>

@@ -8,8 +8,8 @@ import { DefaultCards} from "./components/Card.js";
 import { FormValidator } from "./components/FormValidator.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import { addButton, modalPlace,
-  places,editButton, modalProfile,initialCards,
-  closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,closeEditPhotoPoup
+  places,editButton, modalProfile,initialCards,modalAvatar,
+  closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,closeEditPhotoPoup,overlay
   } from "./components/constants.js";
 
   const logoAroundTheWord = document.querySelector(".header-logo");
@@ -49,8 +49,19 @@ popUpWithProfile._form.addEventListener("submit", (event)=>{
   popUpWithProfile.setSubmitListeners();
 })
 
+const popUpWithAvatar = new PopupWithForm(modalAvatar);
+overlay.addEventListener("click",()=>{
+  popUpWithAvatar.open();
+  popUpWithAvatar._handleEscClose();
+  popUpWithAvatar.setEventListeners();
+});
 
-const popUpWithPlace = new PopupWithForm(modalPlace)
+popUpWithAvatar._form.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  popUpWithAvatar.setSubmitListeners();
+})
+
+const popUpWithPlace = new PopupWithForm(modalPlace);
 
 
 addButton.addEventListener("click",()=>{
