@@ -2,7 +2,7 @@ import { CreatedCards } from "./Card.js";
 import Popup from "./Popup.js";
 import {valuesForm, places, modalAvatar} from "./constants.js"
 import { modalPlace, modalProfile,profileAvatar,
-  profileName, profileWorkstation} from "./constants.js";
+  profileName, profileWorkstation,api} from "./constants.js";
   import { UserInfo } from "./UserInfo.js";
 
 export default class PopupWithForm extends Popup {
@@ -14,14 +14,15 @@ export default class PopupWithForm extends Popup {
     this._buttonClose = this._popupSelector.querySelector(".modal__close-icon");
     this._inputList = this._form.querySelectorAll(".form__user-box");
   }
-
+  
+  
   
   _getInputValue(){
     this._inputList.forEach((input)=>{
       valuesForm[input.name] =input.value;
     })
     return valuesForm;
-   /*  for(let i= 0; i<2; i++){
+    /*  for(let i= 0; i<2; i++){
       valuesForm[i]=this._inputList[i].value;
     } */
     
@@ -50,6 +51,7 @@ export default class PopupWithForm extends Popup {
     userInform.userAbout = valuesForm.about;
     const addUserInfo = new UserInfo(userInform);
     addUserInfo.setUserInfo(profileName, profileWorkstation);
+    api.updateProfile({name:userInform.userName,about:userInform.userAbout});
     console.log(userInform)
   }
 
@@ -64,6 +66,9 @@ export default class PopupWithForm extends Popup {
 
   close(){
     super.close();
+    this._inputList.forEach((input)=>{
+      input.value = "";
+    })
     this._form.reset();
   }
   

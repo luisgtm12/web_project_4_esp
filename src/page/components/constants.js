@@ -1,3 +1,11 @@
+import {Api} from "./API.JS"
+export const api = new Api({
+  baseUrl:"https://around.nomoreparties.co/v1/web_es_07",
+  headers:{
+    authorization:"3a9ccaa6-61a7-4561-8aff-5b939bc6d3d4",
+    "Content-Type": "application/json"
+  }
+})
 export const modalImg = document.querySelector('#modal-img');
 export const modalPlace = document.querySelector('#modal-place');
 export const modalProfile = document.querySelector('#modal-profile');

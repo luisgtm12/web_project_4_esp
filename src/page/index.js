@@ -4,12 +4,15 @@ import userAvatar from "../images/avatar.png"
 import iconX from "../images/close-icon.png"
 import editIcon from "../images/edit-icon.png"
 import addIcon from "../images/icono-add.png"
+import {Section} from "../page/components/Section.js"
 import { DefaultCards} from "./components/Card.js";
 import { FormValidator } from "./components/FormValidator.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import { addButton, modalPlace,
   places,editButton, modalProfile,initialCards,modalAvatar,
-  closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,closeEditPhotoPoup,overlay
+  closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,
+  profileName,profileWorkstation,
+  closeEditPhotoPoup,overlay, profileAvatar,api
   } from "./components/constants.js";
 
   const logoAroundTheWord = document.querySelector(".header-logo");
@@ -26,17 +29,39 @@ import { addButton, modalPlace,
   closeConfirmPopUp.src = iconX;
   closeEditPhotoPoup.src = iconX;
 
+  const defaultProfile = await api.defaultProfile();
+  profileName.innerHTML = defaultProfile.name;
+  profileWorkstation.innerHTML = defaultProfile.about;
+  profileAvatar.src = defaultProfile.avatar;
+
+  const usersCardsData = await api.getCards();
+
 
 //Instanciando cada Formulario
 const formProfileValidator = new FormValidator("form-profile");
 const formPlaceValidator = new FormValidator("form-place");
 
-initialCards.forEach((item) => {
+/*modifical esto*/
+/*initialCards.forEach((item) => {
   const card = new DefaultCards(item,".card");
   const cardElement = card.generateCard();
 
   places.append(cardElement);
-})
+})*/
+/*Generar Tarjetas */ 
+const generateCard = (data)=>{
+  const card = new DefaultCards(data,".card");
+  const cardElement = card.generateCard();
+  places.append(cardElement);
+}
+
+
+const sectionUsers = new Section({
+  items:usersCardsData.concat(initialCards),
+  renderer: generateCard
+},".places");
+sectionUsers.renderer();
+
 
 const popUpWithProfile = new PopupWithForm(modalProfile)
 editButton.addEventListener("click",()=>{

@@ -7,7 +7,12 @@
   
 
   .profile {
+    display: flex;
     flex-direction: column;
+  }
+
+  .profile__content{
+    margin: 0;
   }
 
   .profile__content_name {
@@ -39,6 +44,15 @@
   .modal__contain {
     width: 282px;
     height: 322px;
+  }
+
+  .modal__contain-confirmation{
+    width: 282px;
+    height: 322px;
+  }
+
+  .modal__contain-confirmation_button{
+    width: 238px;
   }
   
   .form__user-box {
