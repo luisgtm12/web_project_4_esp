@@ -1,4 +1,5 @@
 import "./index.css"
+import logoWebTT from "../images/logo/tripleTen.jpg"
 import logoAround from "../images/logo/logo-around.png"
 import userAvatar from "../images/avatar.png"
 import iconX from "../images/close-icon.png"
@@ -12,15 +13,15 @@ import { addButton, modalPlace,
   places,editButton, modalProfile,initialCards,modalAvatar,
   closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,
   profileName,profileWorkstation,
-  closeEditPhotoPoup,overlay, profileAvatar,api
+  closeEditPhotoPoup,overlay, profileAvatar,api,logoTT,userId
   } from "./components/constants.js";
 
   const logoAroundTheWord = document.querySelector(".header-logo");
   const addImage = document.getElementById("add-icon");
-  const avatar = document.getElementById("avatar");
-  const trashImage = document.querySelector("places-card__trash")
+  const trashImage = document.querySelector("places-card__trash");
+  logoTT.href = logoWebTT;
   logoAroundTheWord.src = logoAround;
-  avatar.src = userAvatar;
+  profileAvatar.src = userAvatar;
   closeIcon.src = iconX;
   closePlace.src =iconX;
   closeImagePopUp.src =iconX;
@@ -30,8 +31,8 @@ import { addButton, modalPlace,
   closeEditPhotoPoup.src = iconX;
 
   const defaultProfile = await api.defaultProfile();
-  profileName.innerHTML = defaultProfile.name;
-  profileWorkstation.innerHTML = defaultProfile.about;
+  profileName.textContent = defaultProfile.name;
+  profileWorkstation.textContent = defaultProfile.about;
   profileAvatar.src = defaultProfile.avatar;
 
   const usersCardsData = await api.getCards();
@@ -50,7 +51,12 @@ const formPlaceValidator = new FormValidator("form-place");
 })*/
 /*Generar Tarjetas */ 
 const generateCard = (data)=>{
-  const card = new DefaultCards(data,".card");
+  const owner = data.owner;
+  let showDelete = true;
+  if(!!owner && owner._id !== userId){
+    showDelete = false;
+  }
+  const card = new DefaultCards({...data, likes:data.likes},".card",showDelete);
   const cardElement = card.generateCard();
   places.append(cardElement);
 }

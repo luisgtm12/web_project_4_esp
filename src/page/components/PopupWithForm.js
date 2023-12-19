@@ -1,4 +1,4 @@
-import { CreatedCards } from "./Card.js";
+import { CreatedCards, DefaultCards } from "./Card.js";
 import Popup from "./Popup.js";
 import {valuesForm, places, modalAvatar} from "./constants.js"
 import { modalPlace, modalProfile,profileAvatar,
@@ -43,6 +43,9 @@ export default class PopupWithForm extends Popup {
     const userAvatar = {};
     userAvatar.link = valuesForm.link;
     profileAvatar.src = userAvatar.link;
+    api.updateAvatar({
+      avatar:userAvatar.link
+    })
   }
 
   _addProfile(){
@@ -56,12 +59,14 @@ export default class PopupWithForm extends Popup {
   }
 
   _addPlace(){
-    const data = {};
-    data.name = valuesForm.name;
-    data.link = valuesForm.link;
-    const newCard = new CreatedCards(data,".card");
-    const cardElement= newCard.generateCard();
-    places.append(cardElement);
+    const newCardData = {};
+    newCardData.name = valuesForm.name;
+    newCardData.link = valuesForm.link;
+    api.addCards(newCardData).then((newCardData) => {
+      const newCard = new DefaultCards(newCardData,".card",true);
+      const cardElement= newCard.generateCard();
+      places.append(cardElement);
+    })
   }
 
   close(){

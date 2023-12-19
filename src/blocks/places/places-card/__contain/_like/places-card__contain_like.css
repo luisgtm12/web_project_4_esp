@@ -1,6 +1,16 @@
 .places-card__contain_like {
+  position: relative;
+  display: flex;
+  margin: auto;
   background: #FFFFFF;
   border: none;
+}
+
+.places-card__contain_like-count{
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 .places-card__contain_like:hover {

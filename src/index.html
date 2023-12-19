@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/images/logo/tripleTen.jpg">
+    <link id ="icon-tripleten" rel="icon">
     <title>Alrededor de los EEUU</title>
   </head>
   <body>
@@ -39,7 +39,7 @@
     </div>
     <div id="modal-profile" class="modal">
       <div class="modal__contain">
-        <img id="close-icon-profile" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+        <img id="close-icon-profile" alt="icono de cierre" class="modal__close-icon">
         <h4 class="modal__contain-title">Edit profile</h4>
         <form id="form-profile" class="form" novalidate>
             <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau" minlength="2" maxlength="40" name="name" required>
@@ -52,7 +52,7 @@
       </div>
       <div id="modal-place" class="modal">
         <div class="modal__contain">
-          <img id="close-icon-place" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <img id="close-icon-place" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Nuevo lugar</h4>
           <form id="form-place" class="form" novalidate>
               <input class="form__user-box" id="place-title" type="text" placeholder="Título" minlength="2" maxlength="30" name="name" required>
@@ -65,21 +65,21 @@
       </div>
       <div id="modal-img" class="modal">
         <div class="modal__contain-img">
-          <img id="close-icon-image" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <img id="close-icon-image" alt="icono de cierre" class="modal__close-icon">
           <img id="modal-img-src" class="modal__img" src=" " alt="paisaje">
           <h4 id="modal-img-title" class="modal__title"></h4>
         </div>
       </div>
       <div id="modal-confirm" class="modal">
         <div class="modal__contain-confirmation">
-          <img id="close-icon-confirm" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <img id="close-icon-confirm" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-confirmation_title">¿Estás seguro?</h4>
           <button id="btn-confirmation" type="submit" class="modal__contain-confirmation_button">Si</button>
         </div>
       </div>
       <div id="modal-edit-photo" class="modal">
         <div class="modal__contain">
-          <img id="close-icon-edit-photo" src="./images/close-icon.png" alt="icono de cierre" class="modal__close-icon">
+          <img id="close-icon-edit-photo" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Cambiar foto de perfil</h4>
           <form id="form-edit-photo" class="form" novalidate>
               <input class="form__user-box" id="edit-photo-avatar" type="link" placeholder="Imagen de perfil" name="link" required>
@@ -89,13 +89,16 @@
         </div>
       </div>
       <template class="card">
-        <div class="places-card">
-          <img class="places-card__trash" alt="tachito de basura">
+        <div class="places-card" id="card-0">
+          <img id="tras-icon" class="places-card__trash" alt="tachito de basura">
           <img src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" 
           alt="Photo Valle de Yosemite" class="places-card__image">
           <div class="places-card__contain">
             <p class="places-card__contain_title">Valle de Yosemite</p>
-            <img id="like-0" alt="icono de corazon" class="places-card__contain_like">
+            <div>
+              <img id="like-0" alt="icono de corazon" class="places-card__contain_like">
+              <p class="places-card__contain_like-count">3</p>
+            </div>
           </div>
         </div>
       </template>
