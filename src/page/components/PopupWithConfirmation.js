@@ -1,5 +1,5 @@
 import Popup from "./Popup.js";
-import { modalConfirmation, btnConfirmation } from "./constants.js";
+import { modalConfirmation } from "./constants.js";
 export default class PopupWithConfirmation extends Popup {
   constructor(modalConfirmation){
     super(modalConfirmation)
