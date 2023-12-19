@@ -14,7 +14,7 @@
   border-radius: 50%;
 }
 
-.profile-avatar_overlay:hover{
+.profile__avatar-overlay:hover{
   background-color: rgba(0, 0, 0, 0.7);
   background-image: url('/src/images/avatar-edit.png');
   background-repeat: no-repeat;

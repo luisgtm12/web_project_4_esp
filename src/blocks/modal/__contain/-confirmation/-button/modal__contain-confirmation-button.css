@@ -1,4 +1,4 @@
-.modal__contain-confirmation_button{
+.modal__contain-confirmation-button{
   background: #000000;
   border-radius: 2px;
   width: 358px;
@@ -11,7 +11,7 @@
   color: #FFFFFF;
 }
 
-.modal__contain-confirmation_button:hover{
+.modal__contain-confirmation-button:hover{
   opacity: 0.6;
   cursor: pointer;
 }
