@@ -63,7 +63,7 @@ class Card {
   }
 
   _handleLike() {
-    this._element.querySelector(".places-card__contain_like").addEventListener("click",(evt)=>{
+    this._element.querySelector(".places-card__contain_like").addEventListener("click",()=>{
       console.log(this._element.id)
       
       if(this._element.querySelector(".places-card__contain_like").classList.contains("black-heart")){

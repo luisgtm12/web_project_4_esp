@@ -80,7 +80,6 @@ export class Api {
         console.log("resultado like",result)
         return result
       })*/
-
       .catch((error) => {
         console.log(`Error: ${error}`);
       });
