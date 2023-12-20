@@ -5,16 +5,16 @@ import userAvatar from "../images/avatar.png"
 import iconX from "../images/close-icon.png"
 import editIcon from "../images/edit-icon.png"
 import addIcon from "../images/icono-add.png"
-import {Section} from "../page/components/Section.js"
-import { DefaultCards} from "./components/Card.js";
-import { FormValidator } from "./components/FormValidator.js";
-import PopupWithForm from "./components/PopupWithForm.js";
+import {Section} from "../components/Section.js"
+import { DefaultCards} from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js"
 import { addButton, modalPlace,
   places,editButton, modalProfile,initialCards,modalAvatar,
   closeIcon,closePlace,closeImagePopUp,closeConfirmPopUp,
   profileName,profileWorkstation,
   closeEditPhotoPoup,overlay, profileAvatar,api,logoTT,userId
-  } from "./components/constants.js";
+  } from "../components/constants.js";
 
   const logoAroundTheWord = document.querySelector(".header-logo");
   const addImage = document.getElementById("add-icon");
@@ -34,6 +34,8 @@ import { addButton, modalPlace,
   profileName.textContent = defaultProfile.name;
   profileWorkstation.textContent = defaultProfile.about;
   profileAvatar.src = defaultProfile.avatar;
+  
+
 
   const usersCardsData = await api.getCards();
 

@@ -64,19 +64,18 @@ class Card {
 
   _handleLike() {
     this._element.querySelector(".places-card__contain_like").addEventListener("click",()=>{
-      console.log(this._element.id)
+      
       
       if(this._element.querySelector(".places-card__contain_like").classList.contains("black-heart")){
         api.deleteLike(this._element.id).then((res=>{
           const initArrayLikes = res.likes;
-          console.log("if",initArrayLikes.length,initArrayLikes)
           this._element.querySelector(".places-card__contain_like-count").textContent = initArrayLikes.length;
           this._element.querySelector(".places-card__contain_like").src= likeIcon;
         }))
       } else {
         api.addLike(this._element.id).then((res=> {
           const initArrayLikes = res.likes;
-          console.log("else",initArrayLikes.length,initArrayLikes)
+          
           this._element.querySelector(".places-card__contain_like-count").textContent = initArrayLikes.length;
           this._element.querySelector(".places-card__contain_like").src= blackHeart;
         }))

@@ -6,4 +6,5 @@
   height: 330px;
   position: absolute;
   z-index: 9;
+  transition: opacity 1s linear;
 }

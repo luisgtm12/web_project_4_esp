@@ -1,6 +1,6 @@
 import { CreatedCards, DefaultCards } from "./Card.js";
 import Popup from "./Popup.js";
-import {valuesForm, places, modalAvatar} from "./constants.js"
+import {valuesForm, places, modalAvatar, inputName, inputAbout} from "./constants.js"
 import { modalPlace, modalProfile,profileAvatar,
   profileName, profileWorkstation,api} from "./constants.js";
   import { UserInfo } from "./UserInfo.js";
@@ -55,7 +55,6 @@ export default class PopupWithForm extends Popup {
     const addUserInfo = new UserInfo(userInform);
     addUserInfo.setUserInfo(profileName, profileWorkstation);
     api.updateProfile({name:userInform.userName,about:userInform.userAbout});
-    console.log(userInform)
   }
 
   _addPlace(){

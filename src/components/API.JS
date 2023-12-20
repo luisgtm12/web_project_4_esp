@@ -10,10 +10,13 @@ export class Api {
     })
     .then((res)=> {
       if (res.ok){
-        console.log("Si llega ok");
+        
         return res.json();
       }
     })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    });
   }
   getCards(){
     return fetch(`${this._baseUrl}/cards`, {
@@ -21,8 +24,10 @@ export class Api {
     })
     .then((res)=> res.json())
     .then((result)=>{
-      console.log(result);
+      
       return result;
+    }).catch((error) => {
+      console.log(`Error: ${error}`);
     });
   }
 
@@ -36,6 +41,9 @@ export class Api {
     .then((result)=>{
       console.log("resultado card",result);
       return result;
+    })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
     });
   }
 
@@ -50,6 +58,9 @@ export class Api {
       console.log("Resultado update avatar",result)
       return result;
     })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    });
   }
 
   updateProfile(data){
@@ -60,9 +71,12 @@ export class Api {
     })
     .then((res)=>res.json())
     .then((result)=>{
-      console.log("Resultado update",result)
+      
       return result;
     })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    });
   }
 
   addLike(cardId) {
@@ -116,5 +130,8 @@ export class Api {
       console.log("resultado delete card".result);
       return result
     })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    });
     }
 }
