@@ -44,13 +44,6 @@ import { addButton, modalPlace,
 const formProfileValidator = new FormValidator("form-profile");
 const formPlaceValidator = new FormValidator("form-place");
 
-/*modifical esto*/
-/*initialCards.forEach((item) => {
-  const card = new DefaultCards(item,".card");
-  const cardElement = card.generateCard();
-
-  places.append(cardElement);
-})*/
 /*Generar Tarjetas */ 
 const generateCard = (data)=>{
   const owner = data.owner;
@@ -69,10 +62,15 @@ const sectionUsers = new Section({
   renderer: generateCard
 },".places");
 sectionUsers.renderer();
-
+//
 
 const popUpWithProfile = new PopupWithForm(modalProfile)
 editButton.addEventListener("click",()=>{
+  const userName = popUpWithProfile._form.querySelector("#user-name");
+  const userAbout = popUpWithProfile._form.querySelector("#user-about");
+  
+  userName.value = defaultProfile.name;
+  userAbout.value = defaultProfile.about;
   popUpWithProfile.open();
   popUpWithProfile.setEventListeners();
 })

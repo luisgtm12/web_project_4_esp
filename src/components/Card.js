@@ -58,7 +58,7 @@ class Card {
     this._handleLike();
     
     this._closeIcon();
-
+    
     return this._element;
   }
 
@@ -98,22 +98,16 @@ class Card {
           this._element.remove();
           popUpConfirmationCard.close();
         })
-      }else{
+      }/*else{
         this._element.remove();
         popUpConfirmationCard.close();
-      }
+      }*/
       
     })
     });
   }
 
-  /*_modalImg(){
-    modalImgSrc.src = this._link;
-    modalImgSrc.alt = this._name;
-    modalImgTitle.textContent = this._name;
-    
-    this._handleModalImgOpen();
-  }*/
+
 
   _setEventListeners() {
     

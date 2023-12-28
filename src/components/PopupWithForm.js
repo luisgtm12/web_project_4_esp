@@ -13,6 +13,7 @@ export default class PopupWithForm extends Popup {
     this._form = this._popupSelector.querySelector('.form');
     this._buttonClose = this._popupSelector.querySelector(".modal__close-icon");
     this._inputList = this._form.querySelectorAll(".form__user-box");
+    this._buttonForm = this._form.querySelector(".form__button-submit");
   }
   
   
@@ -43,9 +44,12 @@ export default class PopupWithForm extends Popup {
     const userAvatar = {};
     userAvatar.link = valuesForm.link;
     profileAvatar.src = userAvatar.link;
+    this._buttonForm.innerText = "Guardando...";
+    this._buttonForm.disabled = true;
     api.updateAvatar({
       avatar:userAvatar.link
     })
+    .finally(()=>{this._finally("Guardar")})
   }
 
   _addProfile(){
@@ -54,18 +58,29 @@ export default class PopupWithForm extends Popup {
     userInform.userAbout = valuesForm.about;
     const addUserInfo = new UserInfo(userInform);
     addUserInfo.setUserInfo(profileName, profileWorkstation);
-    api.updateProfile({name:userInform.userName,about:userInform.userAbout});
+    this._buttonForm.innerText = "Guardando...";
+    this._buttonForm.disabled = true;
+    api.updateProfile({name:userInform.userName,about:userInform.userAbout})
+    .finally(()=>{this._finally("Guardar")});
+  }
+
+  _finally(loaders){
+    this._buttonForm.innerText=`${loaders}`;
+      this._buttonForm.disabled= false;
   }
 
   _addPlace(){
     const newCardData = {};
     newCardData.name = valuesForm.name;
     newCardData.link = valuesForm.link;
+    this._buttonForm.innerText = "Creando...";
+    this._buttonForm.disabled = true;
     api.addCards(newCardData).then((newCardData) => {
       const newCard = new DefaultCards(newCardData,".card",true);
       const cardElement= newCard.generateCard();
       places.append(cardElement);
     })
+    .finally(()=>{this._finally("Crear")})
   }
 
   close(){
