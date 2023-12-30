@@ -43,6 +43,7 @@ import { addButton, modalPlace,
 //Instanciando cada Formulario
 const formProfileValidator = new FormValidator("form-profile");
 const formPlaceValidator = new FormValidator("form-place");
+const formEditAvatar = new FormValidator("form-edit-photo")
 
 /*Generar Tarjetas */ 
 const generateCard = (data)=>{
@@ -109,3 +110,4 @@ popUpWithPlace._form.addEventListener("submit", (event)=>{
 // Ejecutando el metodo `enableValidation` en ambas clases
 formProfileValidator.enableValidation();
 formPlaceValidator.enableValidation();
+formEditAvatar.enableValidation();

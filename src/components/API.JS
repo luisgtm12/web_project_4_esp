@@ -127,7 +127,7 @@ export class Api {
     })
     .then(res=> res.json())
     .then(result=>{
-      console.log("resultado delete card".result);
+      
       return result
     })
     .catch((error) => {
