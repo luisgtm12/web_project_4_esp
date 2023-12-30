@@ -10,3 +10,10 @@
   position: absolute;
   z-index: 9;
 }
+
+@media screen and (max-width:320px) {
+  .modal__contain-confirmation{
+    width: 282px;
+    height: 322px;
+  }
+}

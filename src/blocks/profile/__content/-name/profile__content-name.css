@@ -8,3 +8,11 @@
   grid-column-start: 1;
   grid-column-end: 2;
 }
+
+@media screen and (max-width:320px){
+  .profile__content-name {
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+  }
+}

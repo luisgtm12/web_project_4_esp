@@ -20,3 +20,9 @@
   background: #F5F5F5;
   color: #000000;
 }
+
+@media screen and (max-width:320px) {
+  .form__button-submit {
+    width: 238px;
+  }
+}

@@ -17,3 +17,9 @@
 .form__user-box:valid {
   border-bottom: 1px solid green;
 }
+
+@media screen and (max-width:320px) {
+  .form__user-box {
+    width: 238px;
+  }
+}
