@@ -39,7 +39,6 @@ export class Api {
     })
     .then(res=>res.json())
     .then((result)=>{
-      console.log("resultado card",result);
       return result;
     })
     .catch((error) => {
@@ -55,7 +54,6 @@ export class Api {
     })
     .then((res)=>res.json())
     .then((result)=>{
-      console.log("Resultado update avatar",result)
       return result;
     })
     .catch((error) => {

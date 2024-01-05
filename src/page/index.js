@@ -98,6 +98,7 @@ const popUpWithPlace = new PopupWithForm(modalPlace);
 
 addButton.addEventListener("click",()=>{
   popUpWithPlace.open();
+  formPlaceValidator.enableValidation();
   popUpWithPlace._handleEscClose();
   popUpWithPlace.setEventListeners();
 });
@@ -109,5 +110,5 @@ popUpWithPlace._form.addEventListener("submit", (event)=>{
 
 // Ejecutando el metodo `enableValidation` en ambas clases
 formProfileValidator.enableValidation();
-formPlaceValidator.enableValidation();
+
 formEditAvatar.enableValidation();

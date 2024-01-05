@@ -4,33 +4,32 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link id ="icon-tripleten" rel="icon">
+    <link href="./images/logo/tripleTen.jpg" id ="icon-tripleten" rel="icon">
     <title>Alrededor de los EEUU</title>
   </head>
   <body>
     <div class="page">
       <main>
         <header>
-          <img alt="Logo de Around" class="header-logo">
+          <img src="./images/logo/logo-around.png" alt="Logo de Around" class="header-logo">
           <hr class="header-line">
         </header>
         <section>
           <div class="profile">
             <div class="profile__avatar-overlay"></div>
-            <img id="avatar" alt="foto de perfil" class="profile-avatar">
+            <img src="./images/avatar.png" id="avatar" alt="foto de perfil" class="profile-avatar">
             <div class="profile__content">
               <h2 class="profile__content-name">Jacques Cousteau</h2>
               <h3 class="profile__content-workstation">Explorador</h3>
-              <img alt="boton de editar" class="profile__edit-button">
+              <img src="./images/edit-icon.png" alt="boton de editar" class="profile__edit-button">
             </div>
             <button class="profile__add-button">
-              <img id="add-icon" alt="icono de simbolo +" type="button">
+              <img src="./images/icono-add.png" id="add-icon" alt="icono de simbolo +">
             </button>
           </div>
         </section>
         <section>
-          <div class="places" id="places">
-          </div>
+          <div class="places" id="places"></div>
         </section>
         <footer class="footer">
           <h4 class="footer__copyright">© 2021 Alrededor de los EEUU</h4>
@@ -39,7 +38,7 @@
     </div>
     <div id="modal-profile" class="modal">
       <div class="modal__contain">
-        <img id="close-icon-profile" alt="icono de cierre" class="modal__close-icon">
+        <img src="./images/close-icon.png" id="close-icon-profile" alt="icono de cierre" class="modal__close-icon">
         <h4 class="modal__contain-title">Edit profile</h4>
         <form id="form-profile" class="form" novalidate>
             <input class="form__user-box" id="user-name" type="text" placeholder="Nombre" value="Jacques Cousteau" minlength="2" maxlength="40" name="name" required>
@@ -52,7 +51,7 @@
       </div>
       <div id="modal-place" class="modal">
         <div class="modal__contain">
-          <img id="close-icon-place" alt="icono de cierre" class="modal__close-icon">
+          <img src="./images/close-icon.png" id="close-icon-place" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Nuevo lugar</h4>
           <form id="form-place" class="form" novalidate>
               <input class="form__user-box" id="place-title" type="text" placeholder="Título" minlength="2" maxlength="30" name="name" required>
@@ -65,24 +64,24 @@
       </div>
       <div id="modal-img" class="modal">
         <div class="modal__contain-img">
-          <img id="close-icon-image" alt="icono de cierre" class="modal__close-icon">
-          <img id="modal-img-src" class="modal__img" alt="paisaje">
-          <h4 id="modal-img-title" class="modal__title"></h4>
+          <img src="./images/close-icon.png" id="close-icon-image" alt="icono de cierre" class="modal__close-icon">
+          <img src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" id="modal-img-src" class="modal__img" alt="paisaje">
+          <h4 id="modal-img-title" class="modal__title">Titulo paisaje</h4>
         </div>
       </div>
       <div id="modal-confirm" class="modal">
         <div class="modal__contain-confirmation">
-          <img id="close-icon-confirm" alt="icono de cierre" class="modal__close-icon">
+          <img src="./images/close-icon.png" id="close-icon-confirm" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-confirmation-title">¿Estás seguro?</h4>
           <button id="btn-confirmation" type="submit" class="modal__contain-confirmation-button">Si</button>
         </div>
       </div>
       <div id="modal-edit-photo" class="modal">
         <div class="modal__contain">
-          <img id="close-icon-edit-photo" alt="icono de cierre" class="modal__close-icon">
+          <img src="./images/close-icon.png" id="close-icon-edit-photo" alt="icono de cierre" class="modal__close-icon">
           <h4 class="modal__contain-title">Cambiar foto de perfil</h4>
           <form id="form-edit-photo" class="form" novalidate>
-              <input class="form__user-box" id="edit-photo-avatar" type="link" placeholder="Url para imagen de perfil" name="link" required>
+              <input class="form__user-box" id="edit-photo-avatar" type="url" placeholder="Url para imagen de perfil" name="link" required>
               <span class="edit-photo-avatar-error"></span>
               <button type="submit" class="form__button-submit" disabled>Guardar</button>
           </form>
@@ -90,13 +89,13 @@
       </div>
       <template class="card">
         <div class="places-card" id="card-0">
-          <img id="tras-icon" class="places-card__trash" alt="tachito de basura">
+          <img src="./images/trash-icon.png" id="tras-icon" class="places-card__trash" alt="tachito de basura">
           <img src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" 
           alt="Photo Valle de Yosemite" class="places-card__image">
           <div class="places-card__contain">
             <p class="places-card__contain_title">Valle de Yosemite</p>
             <div>
-              <img id="like-0" alt="icono de corazon" class="places-card__contain_like">
+              <img src="./images/corazon.png" id="like-0" alt="icono de corazon" class="places-card__contain_like">
               <p class="places-card__contain_like-count">3</p>
             </div>
           </div>

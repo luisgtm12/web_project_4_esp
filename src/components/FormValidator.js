@@ -47,6 +47,10 @@ class FormValidator {
 
   // Metodo publico
   enableValidation(){
+    const formButton = this.element.querySelector(".form__button-submit");
+    if(formButton){
+      formButton.disabled = true;
+    }
     this.element.addEventListener("submit", function (evt) {
         evt.preventDefault();
       });
